@@ -1,0 +1,62 @@
+# Valid Requests:
+
+    $ curl \
+        -H "Content-type: application/json" \
+        -X POST \
+        -d '{"x":50,"y":-50}' \
+        http://localhost:8080/go
+    "OK"
+
+    $ curl -H "Content-type: application/json" -X POST -d '{"x":0,"y":0}' http://localhost:8080/go
+    "OK"
+
+
+    $ curl -X POST http://localhost:8080/home
+    "OK"
+
+    $ curl -H "Content-type: application/json" -X POST http://localhost:8080/home
+    "OK"
+
+    $ curl -X POST http://localhost:8080/up
+    "OK"
+
+    $ curl -X POST http://localhost:8080/down
+    "OK"
+
+
+
+# Invalid Requests:
+
+    // Valid JSON, but an invalid request
+    $ curl -H "Content-type: application/json" -X POST -d '{"x":"a","y":-50}' http://localhost:8080/go
+    "Invalid request"
+
+    $ curl -H "Content-type: application/json" -X POST -d '{"yo":1}' http://localhost:8080/go
+    "Invalid request"
+
+    $ curl -H "Content-type: application/json" -X POST -d '[1]' http://localhost:8080/go
+    "Invalid request"
+
+    $ curl -H "Content-type: application/json" -X POST -d '["bad"]' http://localhost:8080/go
+    "Invalid request"
+
+
+    // Invalid JSON
+    $ curl -H "Content-type: application/json" -X POST -d '{"x":a,"y":0}' http://localhost:8080/go
+    "Invalid request data"
+
+    $ curl -H "Content-type: application/json" -X POST -d 'bad' http://localhost:8080/go
+    "Invalid request data"
+
+    $ curl -H "Content-type: application/json" -X POST -d '"also bad"' http://localhost:8080/go
+    "Invalid request data"
+
+    $ curl -H "Content-type: application/json" -X POST -d '{1}' http://localhost:8080/go
+    "Invalid request data"
+
+
+
+
+
+
+

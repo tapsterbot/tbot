@@ -1,0 +1,19 @@
+{
+  "name": "tapster-tbot",
+  "version": "1.0.0",
+  "description": "Library for controlling Tapster Tbot",
+  "main": "tbot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jason R. Huggins",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "serialport-wait": "tapsterbot/serialport-wait"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tapsterbot/tbot.git"
+  }
+}
