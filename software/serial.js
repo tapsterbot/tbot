@@ -1,6 +1,3 @@
-//var serialport_wait = require('serialport-wait')
-//var port = new serialport_wait()
-
 exports.findBotPort = async function(port, portName) {
   var foundPort = false
   await port.listAll().then(results => {
